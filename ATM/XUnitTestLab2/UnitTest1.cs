@@ -27,6 +27,25 @@ namespace XUnitTestLab2
                 Assert.NotEqual(expected, balance);
             }
 
+            [Theory]
+            [InlineData(300, 150, 450)]
+            [InlineData(100, 10, 110)]
+            public void PositiveDeposit(decimal Balance, decimal amount, decimal expected)
+            {
+                balance = Balance;
+                Deposit(amount);
+                Assert.Equal(expected, balance);
+            }
 
+
+            [Theory]
+            [InlineData(300, 150, 250)]
+            [InlineData(100, 10, 0)]
+            public void NegativeDeposit(decimal Balance, decimal amount, decimal expected)
+            {
+                balance = Balance;
+                Deposit(amount);
+                Assert.NotEqual(expected, balance);
+            }
     }
 }

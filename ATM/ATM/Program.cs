@@ -12,6 +12,10 @@ namespace ATM
             UserInterface();
         }
 
+        /// <summary>
+        /// Starts application and runs methods
+        /// </summary>
+
         public static void UserInterface() 
         {
             Console.WriteLine("Hi, Welcome to Code Bank");
@@ -33,12 +37,32 @@ namespace ATM
                 }
                 if (userInput == 2)
                 {
-                    Console.WriteLine("Withdraw");
+                    Console.WriteLine("How much would you like to withdraw?");
+                    decimal amount = int.Parse(Console.ReadLine());
+                    decimal newBalance = Withdraw(amount);
+                    if(newBalance >= 0)
+                    {
+                        Console.WriteLine($"Your new balance is {newBalance}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Insufficient balance. Cannot withdraw amount : {amount} " +
+                            $"from balance : {balance}");
+                    }
+
                 }
 
                 if (userInput == 3)
                 {
-                    Console.WriteLine("Deposit");
+                    Console.WriteLine("How much do you want to deposit?");
+                    decimal userAmount = int.Parse(Console.ReadLine());
+                    decimal newBalance = Deposit(userAmount);
+                    Console.WriteLine($"Your new balance is {newBalance}");
+                }
+
+                if (userInput == 4)
+                {
+                    break;
                 }
 
                 if (userChoice == "yes")
@@ -88,5 +112,16 @@ namespace ATM
             }
            
         }
+
+        /// <summary>
+        /// Get input from user and adds it to the balance
+        /// </summary>
+        /// <param name="userAmount"></param>
+        /// <returns></returns>
+        public static decimal Deposit( decimal userAmount)
+        {
+            return balance += userAmount;
+        }
+
     }
 }
