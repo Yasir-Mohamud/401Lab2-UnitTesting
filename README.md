@@ -36,12 +36,12 @@ Then select and open ```ATM.sln```
 ### Visuals
 
 #### Application Start
-![Image 1](C:\Users\yasmo\source\repos\401Lab2-UnitTesting\Assets\Screenshot (1).png)
+![Image 1]("C:\Users\yasmo\Source\Repos\401Lab2-UnitTesting\Assets\Screenshot (1).png")
 #### Using the Application
-![Image 1](C:\Users\yasmo\source\repos\401Lab2-UnitTesting\Assets\Screenshot (2).png)
+![Image 1]("C:\Users\yasmo\source\repos\401Lab2-UnitTesting\Assets\Screenshot (2).png")
 
 ---
 
 ### Change Log
-None available at the moment.
+1.1 Fixes issue with the deposit method and fills in comments.
 

@@ -26,7 +26,7 @@ namespace ATM
             {
                 Console.WriteLine(" Pick from below to get started");
                 Console.WriteLine("1. Balance  2. Withdraw  3.Deposit  4.Done");
-                userInput = Convert.ToInt32(Console.ReadLine());
+                userInput = int.Parse(Console.ReadLine());
 
                
                 string userChoice = "yes";
@@ -38,7 +38,7 @@ namespace ATM
                 if (userInput == 2)
                 {
                     Console.WriteLine("How much would you like to withdraw?");
-                    decimal amount = int.Parse(Console.ReadLine());
+                    decimal amount = Convert.ToDecimal(Console.ReadLine());
                     decimal newBalance = Withdraw(amount);
                     if(newBalance >= 0)
                     {
@@ -55,7 +55,7 @@ namespace ATM
                 if (userInput == 3)
                 {
                     Console.WriteLine("How much do you want to deposit?");
-                    decimal userAmount = int.Parse(Console.ReadLine());
+                    decimal userAmount = Convert.ToDecimal(Console.ReadLine());
                     decimal newBalance = Deposit(userAmount);
                     Console.WriteLine($"Your new balance is {newBalance}");
                 }
@@ -97,7 +97,7 @@ namespace ATM
         /// <summary>
         /// Takes in a parament and subtracts from the balance and return a new balance
         /// </summary>
-        /// <param name="userAmount"></param>
+        /// <param name="userAmount"> amount to be withdrawn</param>
         /// <returns>balance</returns>
 
         public static decimal Withdraw( decimal userAmount)
@@ -116,11 +116,20 @@ namespace ATM
         /// <summary>
         /// Get input from user and adds it to the balance
         /// </summary>
-        /// <param name="userAmount"></param>
-        /// <returns></returns>
+        /// <param name="userAmount">the amount to be deposited</param>
+        /// <returns>new balance</returns>
         public static decimal Deposit( decimal userAmount)
         {
-            return balance += userAmount;
+            if (userAmount > 0)
+            {
+               balance += userAmount;
+            }
+            if (userAmount< 0)
+            {
+                Console.WriteLine(" Unable to deposit negative balance");
+            }
+
+            return balance;
         }
 
     }
